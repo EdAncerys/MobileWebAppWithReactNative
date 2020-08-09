@@ -4,28 +4,16 @@ import {
   useDimensions,
   useDeviceOrientation,
 } from '@react-native-community/hooks';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  Image,
-  SafeAreaView,
-} from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
   console.log(useDimensions(), useDeviceOrientation());
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          backgroundColor: 'dodgerblue',
-          width: '50%',
-          height: 70,
-        }}
-      ></View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <WelcomeScreen />
+    </View>
   );
 }
 
@@ -33,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
