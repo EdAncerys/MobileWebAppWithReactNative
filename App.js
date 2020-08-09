@@ -15,7 +15,7 @@ import AppButton from './app/components/AppButton';
 import ListingDetailsScreen from './app/components/ListingDetailsScreen';
 
 export default function App() {
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 }
 
 const styles = StyleSheet.create({
