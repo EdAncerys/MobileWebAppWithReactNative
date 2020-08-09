@@ -6,13 +6,15 @@ import {
 } from '@react-native-community/hooks';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
 
 export default function App() {
   console.log(useDimensions(), useDeviceOrientation());
 
   return (
     <View style={styles.container}>
-      <WelcomeScreen />
+      {/* <WelcomeScreen /> */}
+      <ViewImageScreen />
     </View>
   );
 }

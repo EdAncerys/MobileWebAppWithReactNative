@@ -8,11 +8,8 @@ export default function WelcomeScreen() {
       source={require('../assets/market-min.jpg')}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require('../assets/f4c-logo-min.png')}
-        />
-        <Text>Sell What You Don't Need</Text>
+        <Image style={styles.logo} source={require('../assets/logo-red.png')} />
+        <Text style={styles.tagLine}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.loginButton}></View>
       <View style={styles.registerButton}></View>
@@ -46,5 +43,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 70,
     backgroundColor: '#4ecdc4',
+  },
+  tagLine: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: '700',
+    margin: 10,
   },
 });
