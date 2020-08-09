@@ -8,19 +8,30 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
+import Card from './app/components/Card';
 
 import AppText from './app/components/AppText';
 import AppButton from './app/components/AppButton';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <WelcomeScreen />
-      {/* <ViewImageScreen /> */}
-
-      {/* <MaterialCommunityIcons size={200} color="dodgerblue" name="email" /> */}
-      {/* <AppButton title="Login" onPress={() => console.log('tapped')} /> */}
+    <View
+      style={{
+        backgroundColor: '#f8f4f4',
+        padding: 20,
+        paddingTop: 100,
+      }}
+    >
+      <Card
+        title="Red Jacket for Sale"
+        subTitle="$100"
+        image={require('./app/assets/bike.jpg')}
+      />
     </View>
+    // <View style={styles.container}>
+    //   {/* <WelcomeScreen /> */}
+    //   <ViewImageScreen />
+    // </View>
   );
 }
 
