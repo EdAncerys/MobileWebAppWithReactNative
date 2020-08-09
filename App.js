@@ -23,7 +23,7 @@ export default function App() {
       }}
     >
       <Card
-        title="Red Jacket for Sale"
+        title="Bike for sale"
         subTitle="$100"
         image={require('./app/assets/bike.jpg')}
       />

@@ -9,7 +9,7 @@ export default function AppText({ children, style }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: Platform.OS === 'android' ? colors.secondary : colors.primary,
+    color: colors.primary,
     fontSize: 20,
     fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
   },
