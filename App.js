@@ -13,15 +13,13 @@ import AppText from './app/components/AppText';
 import AppButton from './app/components/AppButton';
 
 export default function App() {
-  console.log(useDimensions(), useDeviceOrientation());
-
   return (
     <View style={styles.container}>
-      {/* <WelcomeScreen /> */}
+      <WelcomeScreen />
       {/* <ViewImageScreen /> */}
-      <AppText>I have custome style</AppText>
-      <MaterialCommunityIcons size={200} color="dodgerblue" name="email" />
-      <AppButton title="Login" onPress={() => console.log('tapped')} />
+
+      {/* <MaterialCommunityIcons size={200} color="dodgerblue" name="email" /> */}
+      {/* <AppButton title="Login" onPress={() => console.log('tapped')} /> */}
     </View>
   );
 }
