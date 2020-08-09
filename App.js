@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
   useDimensions,
   useDeviceOrientation,
 } from '@react-native-community/hooks';
-
 import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 
@@ -18,6 +18,7 @@ export default function App() {
     <View style={styles.container}>
       {/* <WelcomeScreen /> */}
       <AppText>I have custome style</AppText>
+      <MaterialCommunityIcons size={200} color="dodgerblue" name="email" />
       {/* <ViewImageScreen /> */}
     </View>
   );
