@@ -10,6 +10,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 
 import AppText from './app/components/AppText';
+import AppButton from './app/components/AppButton';
 
 export default function App() {
   console.log(useDimensions(), useDeviceOrientation());
@@ -17,9 +18,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <WelcomeScreen /> */}
+      {/* <ViewImageScreen /> */}
       <AppText>I have custome style</AppText>
       <MaterialCommunityIcons size={200} color="dodgerblue" name="email" />
-      {/* <ViewImageScreen /> */}
+      <AppButton title="Login" onPress={() => console.log('tapped')} />
     </View>
   );
 }
