@@ -30,6 +30,7 @@ export default function MessagesScreen() {
             title={item.title}
             subTitle={item.subTitle}
             image={item.image}
+            onPress={() => console.log('Message Selected', item)}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}

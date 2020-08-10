@@ -8,12 +8,9 @@ import {
 } from 'react-native';
 import colors from '../config/colors';
 
-export default function ListItem({ title, subTitle, image }) {
+export default function ListItem({ title, subTitle, image, onPress }) {
   return (
-    <TouchableHighlight
-      underlayColor={colors.lightGray}
-      onPress={() => console.log()}
-    >
+    <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
       <View style={styles.container}>
         <Image style={styles.image} source={image} />
         <View>
