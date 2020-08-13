@@ -10,6 +10,7 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AppText from './AppText';
 import Screen from './Screen';
+import PickerItem from './PickerItem';
 
 import defaultStyles from '../config/styles';
 
@@ -39,7 +40,16 @@ export default function AppPicker({ icon, items, placeholder }) {
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)}></Button>
-          <FlatList data={items} keyExtractor={items.value.toString()} renderItem={({item}) => } />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => console.log(item)}
+              />
+            )}
+          />
         </Screen>
       </Modal>
     </React.Fragment>
