@@ -28,28 +28,10 @@ import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
-
-const categories = [
-  { label: 'Label 1', value: 1 },
-  { label: 'Label 2', value: 2 },
-  { label: 'Label 3', value: 3 },
-];
+import LoginScreen from './app/screens/LoginScreen';
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
-
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-    </Screen>
-  );
+  return <LoginScreen></LoginScreen>;
 }
 
 const styles = StyleSheet.create({});
