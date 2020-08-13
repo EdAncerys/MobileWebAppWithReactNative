@@ -3,7 +3,14 @@ import {
   useDimensions,
   useDeviceOrientation,
 } from '@react-native-community/hooks';
-import { StyleSheet, View, Text, SafeAreaView, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  Switch,
+} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -20,13 +27,15 @@ import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingScreen from './app/screens/ListingScreen';
 import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
 
 export default function App() {
-  const [firstName, setFirstName] = useState('');
+  const [isNew, setIsNew] = useState(true);
 
   return (
     <Screen>
-      <AppTextInput icon="email" placeholder="Username" />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 }
