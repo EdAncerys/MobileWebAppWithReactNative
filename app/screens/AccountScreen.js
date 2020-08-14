@@ -1,46 +1,43 @@
-import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import React from "react";
+import { StyleSheet, View, FlatList } from "react-native";
 
-import Screen from '../components/Screen';
-import ListItem from '../components/ListItem';
-import Icon from '../components/Icon';
-import ListItemSeperatorComponent from '../components/ListItemSeperator';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
+import Screen from "../components/Screen";
+import { ListItem, ListItemSeparator } from "../components/lists";
+import colors from "../config/colors";
+import Icon from "../components/Icon";
 
-import colors from '../config/colors';
-
-const menuItem = [
+const menuItems = [
   {
-    title: 'My ListItem',
+    title: "My Listings",
     icon: {
-      name: 'format-list-bulleted',
+      name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
   },
   {
-    title: 'My Messages',
+    title: "My Messages",
     icon: {
-      name: 'email',
+      name: "email",
       backgroundColor: colors.secondary,
     },
   },
 ];
 
-export default function AccountScreen() {
+function AccountScreen(props) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Ed Ancerys"
-          subTitle="Programing with React Native"
-          image={require('../assets/logo-red.png')}
+          title="Mosh Hamedani"
+          subTitle="programmingwithmosh@gmail.com"
+          image={require("../assets/mosh.jpg")}
         />
       </View>
       <View style={styles.container}>
         <FlatList
-          data={menuItem}
+          data={menuItems}
           keyExtractor={(menuItem) => menuItem.title}
-          ItemSeparatorComponent={ListItemSeperatorComponent}
+          ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
@@ -63,10 +60,12 @@ export default function AccountScreen() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: colors.light,
+  },
   container: {
     marginVertical: 20,
   },
-  screen: {
-    backgroundColor: colors.lightGray,
-  },
 });
+
+export default AccountScreen;
