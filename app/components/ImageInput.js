@@ -1,47 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
-  StyleSheet,
-  TouchableWithoutFeedback,
   View,
+  StyleSheet,
   Image,
+  TouchableWithoutFeedback,
   Alert,
-} from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
+} from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
 
-import colors from '../config/colors';
+import colors from "../config/colors";
 
-export default function ImageInput({ imageUri, onChangeImage }) {
+function ImageInput({ imageUri, onChangeImage }) {
   useEffect(() => {
-    requestPermision();
+    requestPermission();
   }, []);
 
-  const requestPermision = async () => {
+  const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted) alert('You need to enable permission to access the library');
+    if (!granted) alert("You need to enable permission to access the library.");
   };
 
   const handlePress = () => {
     if (!imageUri) selectImage();
     else
-      Alert.alert('Delete', 'Are you sure you want to delete this image?', [
-        {
-          text: 'Yes',
-          onPress: () => onChangeImage(null),
-        },
-        { text: 'No' },
+      Alert.alert("Delete", "Are you sure you want to delete this image?", [
+        { text: "Yes", onPress: () => onChangeImage(null) },
+        { text: "No" },
       ]);
   };
 
   const selectImage = async () => {
     try {
-      const { uri, cancelled } = await ImagePicker.launchImageLibraryAsync({
+      const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.5,
       });
-      if (!cancelled) onChangeImage(uri);
+      if (!result.cancelled) onChangeImage(result.uri);
     } catch (error) {
-      console.log('error');
+      console.log("Error reading an image", error);
     }
   };
 
@@ -63,16 +60,19 @@ export default function ImageInput({ imageUri, onChangeImage }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: colors.light,
     borderRadius: 15,
     height: 100,
-    justifyContent: 'center',
-    overflow: 'hidden',
+    justifyContent: "center",
+    marginVertical: 10,
+    overflow: "hidden",
     width: 100,
   },
   image: {
-    width: '100%',
-    height: '100%',
+    height: "100%",
+    width: "100%",
   },
 });
+
+export default ImageInput;
