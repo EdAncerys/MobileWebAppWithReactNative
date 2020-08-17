@@ -1,29 +1,28 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Screen from './app/components/Screen';
 
-const Tweets = ({ navigation }) => {
+const Tweets = ({}) => {
   return (
     <Screen>
-      <Text>Tweets</Text>
-      <Button
-        title="View Tweet"
-        onPress={() => navigation.push('TweetDetails', { id: 1, name: 'Name' })}
-      />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home!</Text>
+      </View>
     </Screen>
   );
 };
 
-const TweetDetails = ({ route }) => {
+const TweetDetails = ({ navigation, route }) => {
   return (
     <Screen>
-      <Text>
-        Tweet Details {route.params.id} {route.params.name}
-      </Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
     </Screen>
   );
 };
@@ -46,12 +45,33 @@ const StackNavigator = () => {
   );
 };
 
-export default function App() {
+const Account = () => {
+  return (
+    <Screen style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Account</Text>
+    </Screen>
+  );
+};
+
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Feed" component={Tweets} />
+      <Tab.Screen name="Details" component={TweetDetails} />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
+};
+
+export default function App({ route }) {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      {/* <Stack.Navigator>
         <Stack.Screen name="Home" component={StackNavigator} />
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+
+      <TabNavigator />
     </NavigationContainer>
   );
 }
